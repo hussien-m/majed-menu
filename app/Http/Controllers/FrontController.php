@@ -10,7 +10,7 @@ class FrontController extends Controller
 {
     public function meals($section_id)
     {
-        $sections = Section::where('parent_id',$section_id)->get();
+        $sections = Section::where('parent_id',$section_id)->where('status','active')->get();
         if($sections->count() >0  ){
             return view('meal',compact('sections'));
          } else{

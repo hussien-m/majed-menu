@@ -13,6 +13,7 @@
                 <th>الصورة</th>
                 <th>الاسم</th>
                 <th>القسم الرئيسي</th>
+                <th>حالة القسم</th>
                 <th>أنشئت في</th>
                 <th>الخيارات</th>
             </thead>
@@ -26,6 +27,7 @@
 
                     <td>{{ $section->ar_name }}</td>
                     <td><a href="#">{{ $section->parent->ar_name ?? 'لايوجد' }}</a> </td>
+                    <td>{{ $section->status == 'active' ? 'مفعل' : 'غير مفعل' }} </td>
                     <td>{{ $section->created_at->diffForHumans() }}</td>
                     <td>
                         <div class="btn-group btn-group-md" id="tooltip-container">

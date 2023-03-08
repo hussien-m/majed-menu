@@ -54,7 +54,7 @@
                         <img src="{{ asset('front/assets/img/alrayah_logo.svg') }}" height="70px" alt="">
                         <img src="{{ asset('front/assets/img/cafi-logo.png') }}" height="70px" alt="">
 
-                        <div class="social-links d-flex justify-content-center mt-3">
+                        @if($option->social_status == 'active')<div class="social-links d-flex justify-content-center mt-3">
                             <a href="{{ $option->twitter }}" class="d-flex align-items-center justify-content-center"><i
                                     class="bi bi-twitter"></i></a>
 
@@ -66,16 +66,16 @@
 
                             <a href="{{ $option->tiktok }}" class="d-flex align-items-center justify-content-center"><i
                                     class="bi bi-tiktok"></i></a>
-                        </div>
+                        </div>@endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
+    @if(Request::is('ar') or Request::is('en'))
     <x-hero-component />
-
+    @endif
 
     <main id="main" class="mt-3">
 

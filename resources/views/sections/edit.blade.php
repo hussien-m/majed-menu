@@ -40,6 +40,14 @@
                                 </select>
                             </div>
 
+                            <div class="mb-3">
+                                <label for="social_status" class="form-label">حالة القسم</label>
+                                <select class="form-control" name="status" id="social_status">
+                                    <option value="active" {{ $section->status == 'active' ?  'selected' : '' }}>مفعل</option>
+                                    <option value="inactive" {{ $section->status == 'inactive' ? 'selected' : '' }}>غير مفعل</option>
+                                </select>
+                            </div>
+
                             <div class="col-xl-2 col-md-3">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light"> حفظ
                                     القسم <i class="fas fa-save"></i></button>

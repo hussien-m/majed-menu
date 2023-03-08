@@ -26,6 +26,7 @@ class SettingController extends Controller
             'tiktok'                =>'required',
             'meta_tag'              =>'required',
             'meta_desc'             =>'required',
+            'social_status'         =>'required',
         ]);
 
         if ($request->hasFile('logo')) {

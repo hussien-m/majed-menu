@@ -35,6 +35,7 @@ class SectionController extends Controller
             'ar_name' => 'required',
             'en_name' => 'required',
             'parent_id' => 'int',
+            'status' => 'required',
             'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -51,6 +52,7 @@ class SectionController extends Controller
             'en_name' => $request->en_name,
             'image' => $request->image,
             'parent_id' => $request->parent_id,
+            'status' => $request->status,
 
         ]);
 
@@ -95,6 +97,7 @@ class SectionController extends Controller
         $section->ar_name = $request->ar_name;
         $section->en_name = $request->en_name;
         $section->parent_id = $request->parent_id;
+        $section->status = $request->status;
 
         $section->save();
 

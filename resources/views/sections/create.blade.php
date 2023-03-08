@@ -26,6 +26,14 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="statuss" class="form-label">حالة القسم</label>
+                                <select class="form-control" name="status" id="statuss">
+                                    <option value="active">مفعل</option>
+                                    <option value="inactive"> غير مفعل</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
                                 <label class="parent_id">القسم الرئيسي</label>
                                 <select type="text" id="parent_id" class="form-control" name="parent_id">
                                     <option selected value=0>لا يوجد</option>
@@ -34,10 +42,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
-
-
-
 
                             <div class="mb-3">
                                 <label for="image" class="form-label">الصورة</label>

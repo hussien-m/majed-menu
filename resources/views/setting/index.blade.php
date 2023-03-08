@@ -54,6 +54,14 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="mb-3">
+                                    <label for="social_status" class="form-label">حالة التواصل الاجتماعي</label>
+                                    <select class="form-control" name="social_status" id="social_status">
+                                        <option value="active" {{ $option->social_status == 'active' ? 'selected':'' }}>مفعل</option>
+                                        <option value="inactive" {{ $option->social_status == 'inactive' ? 'selected':'' }}>غير مفعل</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
                                     <label for="phone" class="form-label">رقم الهاتف</label>
                                     <input type="text" name="phone" id="phone" class="form-control"
                                         value="{{ $setting[0]->phone }}">
