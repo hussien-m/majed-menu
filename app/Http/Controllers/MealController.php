@@ -31,7 +31,7 @@ class MealController extends Controller
     public function create()
     {
         $data['pagename'] = 'اضافة وجبة';
-        $data['sections'] = Section::all();
+        $data['sections'] = Section::whereHas('children')->get();
         return view('meals.create' , $data);
     }
 
@@ -47,6 +47,7 @@ class MealController extends Controller
             'en_components' => 'required',
             'price' => 'required|int',
             'section_id' => 'required|int',
+            'children_id' => 'required|int',
             'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -66,6 +67,7 @@ class MealController extends Controller
             'price' => $request->price,
             'image' => $request->image,
             'section_id' => $request->section_id,
+            'children_id' => $request->children_id,
 
         ]);
 

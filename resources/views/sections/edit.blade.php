@@ -28,6 +28,18 @@
                                 <label for="image" class="form-label">الصورة</label>
                                 <input type="file" type="text" rows="2" style="resize: none" name="image" id="image" class="form-control"></ه>
                             </div>
+
+                            <div class="mb-3">
+                                <label class="parent_id">القسم الرئيسي</label>
+                                <select type="text" id="parent_id" class="form-control" name="parent_id">
+                                    @foreach ( $parents as $parent  )
+                                        <option value="{{ $parent->id  }}" {{ $section->parent_id == $parent->id ? 'selected':'' }}>{{ $parent->ar_name }}</option>
+                                    @endforeach
+                                    <option  value=0>لا يوجد</option>
+
+                                </select>
+                            </div>
+
                             <div class="col-xl-2 col-md-3">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light"> حفظ
                                     القسم <i class="fas fa-save"></i></button>

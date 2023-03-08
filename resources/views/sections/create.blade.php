@@ -25,6 +25,16 @@
                                 <input type="text" id="en_name" class="form-control" name="en_name" value="">
                             </div>
 
+                            <div class="mb-3">
+                                <label class="parent_id">القسم الرئيسي</label>
+                                <select type="text" id="parent_id" class="form-control" name="parent_id">
+                                    <option selected value=0>لا يوجد</option>
+                                    @foreach ( $parents as $parent  )
+                                        <option value="{{ $parent->id }}">{{ $parent->ar_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
 
 
 

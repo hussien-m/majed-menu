@@ -16,7 +16,7 @@ class SectionComponent extends Component
     public $sections;
     public function __construct()
     {
-        $this->sections = Section::latest()->paginate(4);
+        $this->sections = Section::paginate(4);
     }
 
     /**

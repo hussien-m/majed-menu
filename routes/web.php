@@ -58,4 +58,10 @@ Route::get('home/setting',[SettingController::class,'index'])->name('system.sett
 Route::put('home/setting/update',[SettingController::class,'update'])->name('system.setting.update');
 
 
+Route::get('/get-sub-category',function (){
+    $parent_id = \Illuminate\Support\Facades\Request::get('section_id');
+    $category = \App\Models\Section::where('parent_id','=',$parent_id)->get();
+    return response()->json($category);
+})->name('get-sub-category');
+
 });

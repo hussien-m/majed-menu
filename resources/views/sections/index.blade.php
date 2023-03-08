@@ -12,6 +12,7 @@
                 <th>#</th>
                 <th>الصورة</th>
                 <th>الاسم</th>
+                <th>القسم الرئيسي</th>
                 <th>أنشئت في</th>
                 <th>الخيارات</th>
             </thead>
@@ -24,7 +25,8 @@
                     </a></td>
 
                     <td>{{ $section->ar_name }}</td>
-                    <td>{{ $section->created_at->diffForHumans()}}</td>
+                    <td><a href="#">{{ $section->parent->ar_name ?? 'لايوجد' }}</a> </td>
+                    <td>{{ $section->created_at->diffForHumans() }}</td>
                     <td>
                         <div class="btn-group btn-group-md" id="tooltip-container">
                             <a href="{{ route('section.edit',$section->id) }}" class="btn btn-primary"  data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="تعديل">

@@ -15,4 +15,20 @@ class Section extends Model
     {
         return $this->hasMany(Meal::class,'section_id');
     }
+    public function chmeals()
+    {
+        return $this->hasMany(Meal::class,'section_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Section::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Section::class, 'parent_id');
+    }
+
+
 }

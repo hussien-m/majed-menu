@@ -17,7 +17,7 @@ class SectionController extends Controller
     public function index()
     {
         $data['pagename'] = 'الاقسام';
-        $data['sections']  = Section::all();
+        $data['sections']  = Section::withCount('children')->get();
         return view('sections.index',$data);
     }
 
@@ -25,6 +25,7 @@ class SectionController extends Controller
     public function create()
     {
         $data['pagename'] = 'اضافة قسم';
+        $data['parents']   = Section::get();
         return view('sections.create',$data);
     }
 
@@ -33,6 +34,7 @@ class SectionController extends Controller
         $data =$request->validate([
             'ar_name' => 'required',
             'en_name' => 'required',
+            'parent_id' => 'int',
             'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -48,6 +50,7 @@ class SectionController extends Controller
             'ar_name' => $request->ar_name,
             'en_name' => $request->en_name,
             'image' => $request->image,
+            'parent_id' => $request->parent_id,
 
         ]);
 
@@ -64,6 +67,7 @@ class SectionController extends Controller
     {
         $data['section'] = Section::findOrfail($id);
         $data['pagename'] = 'تعديل قسم';
+        $data['parents']   = Section::get();
         return view('sections.edit',$data);
     }
 
@@ -90,6 +94,7 @@ class SectionController extends Controller
 
         $section->ar_name = $request->ar_name;
         $section->en_name = $request->en_name;
+        $section->parent_id = $request->parent_id;
 
         $section->save();
 
