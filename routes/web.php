@@ -64,4 +64,6 @@ Route::get('/get-sub-category',function (){
     return response()->json($category);
 })->name('get-sub-category');
 
+Route::get('get/meal/',[FrontController::class,'getMeals'])->name('getMeals');
+
 });

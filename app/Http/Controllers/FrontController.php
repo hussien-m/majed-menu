@@ -10,14 +10,22 @@ class FrontController extends Controller
 {
     public function meals($section_id)
     {
-        $sections = Section::with('meals')->get();
-        //dd($sections);
+        $sections = Section::where('parent_id',$section_id)->get();
         if($sections->count() >0  ){
-
             return view('meal',compact('sections'));
          } else{
             return abort('404');
          }
 
+    }
+
+    public function getMeals(Request $request)
+    {
+        $section_id = $request->section_id;
+
+        $meals = Meal::where('children_id',$section_id)->get();
+
+        $html = view('mealData',compact('meals'))->render();
+        return response()->json($html);
     }
 }
